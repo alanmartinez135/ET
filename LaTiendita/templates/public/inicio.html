@@ -52,11 +52,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="d-flex justify-content-center">
-                <a href="bandana.html"> <img src="{% static "img/perro_bandana.png" %}" class="imag" alt="Bandanas" width="300px" height="300px"></a>
+                <a href="{% url 'bandana' %}"> <img src="{% static "img/perro_bandana.png" %}" class="imag" alt="Bandanas" width="300px" height="300px"></a>
                 <div class="col-md-1"></div>
-                <a href="{% url 'correa.html' %}"> <img src="{% static "img/gato_correa.png" %} " class="imag" alt="Correas" width="300px" height="300px"></a>
+                <a href="{% url 'correa' %}"> <img src="{% static "img/gato_correa.png" %} " class="imag" alt="Correas" width="300px" height="300px"></a>
                 <div class="col-md-1"></div>
-                <a href="indentificador.html"> <img src="{% static "img/perro_identificador.png" %} " class="imag" alt="Identificadores" width="300px" height="300px"></a>
+                <a href="{% url 'identificador' %}"> <img src="{% static "img/perro_identificador.png" %} " class="imag" alt="Identificadores" width="300px" height="300px"></a>
             </div>
         </div>
     </div>
