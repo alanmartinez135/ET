@@ -2,6 +2,26 @@
     background-color: #efe9e4;
     font-family:Helvetica;
 }
+.laTiendita {
+    color: black;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+.navbar-icons {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-icons .btn {
+    margin-left: 10px;
+}
 
 .searchbar{
     width: 100%;
