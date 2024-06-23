@@ -4,6 +4,10 @@
 
 {% block title%}La Tiendita{% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static '/css/style-carrito.css/' %}">   
+{% endblock %}
+
 {% block content %}
     <div>
         {% include 'descrip_carrito.html' %}
@@ -13,101 +17,29 @@
     <div class="container-fluid" style="text-align: center;">
         <h3 class="textoEnc"> 😻¡Encuentra aquí las mejores bandanas para tus mascotas!🐶</h3>
     </div>
-    <!--cards bandanas gatos-->
-    <div class="container-fluid">
-        <br>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="img/gatobandana1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Bandana Natural Gato🌿</h5>
-                        <p class="card-text">¡El mejor accesorio para tu peludo!</p>
-                        <p class="card-text">$4.990</p>
-                        <a href="#" class="btn btn-primary">Agregar al carro</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="img/gatobandana2.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Bandana Tropical 🌴</h5>
-                    <p class="card-text">¡El mejor accesorio para tu peludo!</p>
-                    <p class="card-text">$4.990</p>
-                    <a href="#" class="btn btn-primary">Agregar al carro</a>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="img/gatobandana3.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Bandana Fungus Gato 🍄</h5>
-                        <p class="card-text">¡El mejor accesorio para tu peludo!</p>
-                        <p class="card-text">$4.990</p>
-                        <a href="{% url 'add' %}" class="btn btn-primary">Agregar al carro</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- {% for producto in productos %}
-    <div class="col-6">
-        <div class="card" slyte="height: 10rem; width: 23rem; margin: 5px 0px;">
-        <div class="card-body">
-            <h5 class="card-title">{{producto.nombre}}</h5>
-            <p class="card-text">{{producto.descripcion}}</p>
-            <p class="card-text">{{producto.precio}}</p>
-            <a href="{% url 'add' producto.id %}" class="btn btn-primary">Agregar al carrito</a>
-        </div>
-        </div>
-    </div>
-    {% endfor %} -->
-
-    <!--cards bandanas perros-->
-    <div class="container-fluid">
-        <br>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="img/bandanaperro.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" style="height: 37px;">Bandana Mezclilla Perro 👖</h5>
-                    <p class="card-text">¡El mejor accesorio para tu peludo!</p>
-                    <p class="card-text">$4.990</p>
-                    <a href="#" class="btn btn-primary botonAgregar">Agregar al carro</a>
+    <div class="col-12" id="Bandada">
+        <div class="container cont-cartas">
+            <div class="row">
+                {% for producto in productos %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        {% if producto.imagen %}
+                        <img src="{{ producto.imagen.url }}" class="card-img-top producto-imagen" alt="Imagen del producto" width="" height="380px">
+                        {% else %}
+                        <span>No hay foto disponible</span>
+                        {% endif %}
+        
+                        <div class="card-body">
+                            <h5 class="card-title">{{ producto.nombre }}</h5>
+                            <hr>
+                            <p class="card-text">{{ producto.descripcion }}</p>
+                            <p class="card-text">$ {{ producto.precio }}</p>
+                            <a href="{% url 'add' producto.id %}" class="btn btn-primary">Agregar al carrito</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="img/bandanaperro2.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Bandana Free Kisses 💋</h5>
-                    <p class="card-text">¡El mejor accesorio para tu peludo!</p>
-                    <p class="card-text">$4.990</p>
-                    <a href="#" class="btn btn-primary">Agregar al carro</a>
-                </div>
-            </div>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="img/bandanaperro3.png" class = "card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Bandana Fungus Gato 🍄</h5>
-                    <p class="card-text">¡El mejor accesorio para tu peludo!</p>
-                    <p class="card-text">$4.990</p>
-                    <a href="#" class="btn btn-primary">Agregar al carro</a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

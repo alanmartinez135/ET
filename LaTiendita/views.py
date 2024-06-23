@@ -5,6 +5,7 @@ from django.contrib import messages
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from LaTiendita.Carrito import Carrito
 
 # Create your views here.
 
@@ -15,16 +16,22 @@ def correa(request):
     return render(request, 'public/correa.html')
 
 def bandana(request):
-    return render(request, 'public/bandana.html')
+    productos = Producto.objects.filter(stock__gt=0, categoria='bandana') 
+    context = {
+        'productos': productos,
+    }
+
+    return render(request, 'public/bandana.html', context)
 
 def identificador(request):
+
     return render(request, 'public/identificador.html')
 
 def descrip_carro(request):
     return render(request, 'public/descrip_carrito.html')
 
 def lista_productos(request):
-    productos = Producto.objects.all()  # Obtén todos los productos (ajusta la consulta según tu modelo)
+    productos = Producto.objects.all()  
     context = {
         'productos': productos,
     }
@@ -34,21 +41,21 @@ def agregar_producto(request, producto_id):
     v_carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
     v_carrito.agregar(producto)
-    return redirect("menu")
+    return redirect("bandana")
 
 def eliminar_producto(request, producto_id):
     v_carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
     v_carrito.eliminar(producto)
-    return redirect("menu")
+    return redirect("bandana")
 
 def restar_producto(request, producto_id):
     v_carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
     v_carrito.restar(producto)
-    return redirect("menu")
+    return redirect("bandana")
 
 def limpiar_carrito(request):
     v_carrito = Carrito(request)
     v_carrito.limpiar()
-    return redirect("menu")
+    return redirect("bandana")

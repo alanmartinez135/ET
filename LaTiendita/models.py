@@ -5,6 +5,7 @@ from django.conf import settings
 # Create your models here.
 
 class Producto(models.Model):
+    id = models.AutoField(primary_key=True)
     nombre = models.CharField('Nombre producto', max_length=50, blank=False, null=False)
     precio = models.IntegerField()
     descripcion = models.TextField()
@@ -16,6 +17,7 @@ class Producto(models.Model):
         return f"Nombre producto : {self.nombre}"
     
 class Cliente(models.Model):
+    id = models.AutoField(primary_key=True)
     nombre = models.CharField('Nombre cliente', max_length=50, blank=False, null=False)
     suscripcion = models.BooleanField('Suscripcion', default=True, blank=False, null=False)
     correo = models.EmailField('Correo', max_length=50, blank=False, null=False)
@@ -24,6 +26,7 @@ class Cliente(models.Model):
         return f"Nombre cliente : {self.nombre}"
     
 class Carrito(models.Model):
+    id = models.AutoField(primary_key=True)
     cliente = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     creado_en = models.DateTimeField(auto_now_add=True)
     activo = models.BooleanField(default=True)
