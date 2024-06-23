@@ -20,8 +20,8 @@
                             <a href="{% url 'add' value.producto_id %}" class="badge btn btn-dark badge-dark"></a>
                         </td>
                         <td> <!-- cantidad -->
-                            <a href="{% url 'add' value.producto_id %}" class="badge btn btn-dark badge-dark">+</a>
-                            <a href="{% url 'sub' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
+                            <a href="{% url 'add' value.producto_id %}" class="btn btn-dark badge-dark btn-add-to-cart">+</a>
+                            <a href="{% url 'sub' value.producto_id %}" class="btn btn-dark badge-dark">-</a>
                         </td>
                     </tr>
                 {% endfor %}
