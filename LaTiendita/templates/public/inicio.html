@@ -2,11 +2,11 @@
 
 {% load static %}
 
-{% block title%}La Tiendita{% endblock %}
+{% block title %}La Tiendita{% endblock %}
 
 {% block content %}
- <!--carrusel-->
- <div style=" width: 100%; margin: auto; padding-top: 0px;">
+<!--carrusel-->
+<div class="container-fluid p-0">
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -14,109 +14,102 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-                <div class="d-flex justify-content-center">
-                    <img src=" {% static "img/perro banner.jpg" %}" class="d-block w-100" alt="gato blanco">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="carrusel">¡Bienvenido@!</h5>
-                    </div>
+                <img src="{% static 'img/perro banner.jpg' %}" class="d-block w-100" alt="gato blanco">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="carrusel">¡Bienvenid@!</h5>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-                <div class="d-flex justify-content-center">
-                    <img src="{% static "img/banner_cat_white.jpg" %}" class="d-block w-100" alt="animales">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 style="color: black;" class="carrusel2">¡Estamos felices de tenerte de vuelta!</h5>
-                    </div>
+                <img src="{% static 'img/banner_cat_white.jpg' %}" class="d-block w-100" alt="animales">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="carrusel2" style="color: black;">¡Estamos felices de tenerte de vuelta!</h5>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev" style="color: black;">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next" style="color: black;">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
 </div>
-<!--Opciones-->
-<br><br>
-<!--texto todo para tu mascota-->
-<div class="d-flex align-items-center justify-content-center">
+
+<!--Texto todo para tu mascota-->
+<div class="d-flex align-items-center justify-content-center my-4">
     <h5 class="aileron todoP">🐶🐱¡TODO PARA TU MASCOTA!🐱🐶</h5>
 </div>
-<br>
-<!--opciones, bandanas, correas y identificadores-->
-<div class="container-fluid opcionesBCP">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="d-flex justify-content-center">
-                <a href="{% url 'bandana' %}"> <img src="{% static "img/perro_bandana.png" %}" class="imag" alt="Bandanas" width="300px" height="300px"></a>
-                <div class="col-md-1"></div>
-                <a href="{% url 'correa' %}"> <img src="{% static "img/gato_correa.png" %} " class="imag" alt="Correas" width="300px" height="300px"></a>
-                <div class="col-md-1"></div>
-                <a href="{% url 'identificador' %}"> <img src="{% static "img/perro_identificador.png" %} " class="imag" alt="Identificadores" width="300px" height="300px"></a>
-            </div>
+
+<!--Opciones, bandanas, correas y identificadores-->
+<div class="container opcionesBCP">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'bandana' %}"><img src="{% static 'img/perro_bandana.png' %}" class="img-fluid imag" alt="Bandanas"></a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'correa' %}"><img src="{% static 'img/gato_correa.png' %}" class="img-fluid imag" alt="Correas"></a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'identificador' %}"><img src="{% static 'img/perro_identificador.png' %}" class="img-fluid imag" alt="Identificadores"></a>
         </div>
     </div>
 </div>
 
 <!--Oferta-->
-<div class="row">
-    <div class="col-md-3"></div>
-        <div class="col-md-6 banner">
-            <img src=" {% static "img/Banner web comida de perros negro.jpeg" %}" alt="banner" class="banner_perro" width="100%" height="100%">
+<div class="container-fluid banner">
+    <div class="row justify-content-center my-4">
+        <div class="col-md-8">
+            <img src="{% static 'img/Banner web comida de perros negro.jpeg' %}" alt="banner" class="img-fluid">
         </div>
-    <div class="col-md-3"></div>
+    </div>
 </div>
 
-<!--texto FAQ-->
-<div class="d-flex align-items-center justify-content-center faq">
+<!--Texto FAQ-->
+<div class="d-flex align-items-center justify-content-center my-4 faq">
     <h5 class="preguntas">🐱❓ Preguntas frecuentes 🔎🐶</h5>
 </div>
-<br>
-<!--Acordeon-->
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8 accordion accordion-flush" id="accordionFlushExample">
+
+<!--Acordeón-->
+<div class="container my-4">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed tituloA" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                ¿Quienes Somos?
+                ¿Quiénes Somos?
                 </button>
             </h2>
             <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body texto"> Somos una tienda especializada en articulos para mascotas que nació de un grupo de amigas amantes de los animales,
-                    nuestra visión es la de ofrecer productos de calidad a un precio accesible para todo tipo de clientes. La iniciativa de nuestra tienda se volvió viral
-                    y nos vimos obligadas a instalar una tienda virtual para dar a vasto con la demanda de productos, nuestro objetivo principal es el de ayudar a una ONG.
+                <div class="accordion-body texto">
+                    Somos una tienda especializada en artículos para mascotas que nació de un grupo de amigas amantes de los animales. Nuestra visión es ofrecer productos de calidad a un precio accesible para todo tipo de clientes. La iniciativa de nuestra tienda se volvió viral y nos vimos obligadas a instalar una tienda virtual para dar abasto con la demanda de productos. Nuestro objetivo principal es ayudar a una ONG.
                 </div>
             </div>
         </div>
         <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed tituloA" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-              ¿Realizan despachos a domicilio?
-            </button>
-          </h2>
-          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body texto">Sí, realizamos despacho dentro de la región metropolitana, el envío tiene un valor fijo de $3.990 y un tiempo de entrega estimado de 
-                2 a 3 días hábiles.
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed tituloA" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                ¿Realizan despachos a domicilio?
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body texto">
+                    Sí, realizamos despacho dentro de la región metropolitana. El envío tiene un valor fijo de $3.990 y un tiempo de entrega estimado de 2 a 3 días hábiles.
+                </div>
             </div>
-          </div>
         </div>
         <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed tituloA" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-              ¿Qué es #PatitasUnidas?
-            </button>
-          </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body texto">#PatitasUnidas es una ONG a la que apoyamos ferviertemente desde nuestros inicios, es a donde van destinado la mayor parte de los ingresos de los productos
-                vendidos.</div>
-          </div>
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed tituloA" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                ¿Qué es #PatitasUnidas?
+                </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body texto">
+                    #PatitasUnidas es una ONG a la que apoyamos fervientemente desde nuestros inicios. Es a donde va destinado la mayor parte de los ingresos de los productos vendidos.
+                </div>
+            </div>
         </div>
-      </div>
-    <div class="col-md-2"></div>
+    </div>
 </div>
 {% endblock %}
