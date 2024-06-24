@@ -13,7 +13,12 @@ def inicio(request):
     return render(request, 'public/inicio.html')
 
 def correa(request):
-    return render(request, 'public/correa.html')
+    productos = Producto.objects.filter(stock__gt=0, categoria='correa') 
+    context = {
+        'productos': productos,
+    }
+
+    return render(request, 'public/correa.html', context)
 
 def bandana(request):
     productos = Producto.objects.filter(stock__gt=0, categoria='bandana') 
@@ -24,8 +29,11 @@ def bandana(request):
     return render(request, 'public/bandana.html', context)
 
 def identificador(request):
-
-    return render(request, 'public/identificador.html')
+    productos = Producto.objects.filter(stock__gt=0, categoria='identificador') 
+    context = {
+        'productos': productos,
+    }
+    return render(request, 'public/identificador.html', context)
 
 def descrip_carro(request):
     return render(request, 'public/descrip_carrito.html')
@@ -42,6 +50,12 @@ def agregar_producto(request, producto_id):
     producto = Producto.objects.get(id=producto_id)
     v_carrito.agregar(producto)
     return redirect("bandana")
+
+def agregar_producto1(request, producto_id):
+    v_carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id)
+    v_carrito.agregar(producto)
+    return redirect("identificador")
 
 def eliminar_producto(request, producto_id):
     v_carrito = Carrito(request)
