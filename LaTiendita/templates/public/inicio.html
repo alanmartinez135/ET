@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
 
 {% block title %}La Tiendita{% endblock %}
 
@@ -46,14 +49,17 @@
 <div class="container opcionesBCP">
     <div class="row text-center">
         <div class="col-md-4 mb-4">
-            <a href="{% url 'bandana' %}"><img src="{% static 'img/perro_bandana.png' %}" class="img-fluid imag" alt="Bandanas"></a>
+            <img src="{% static 'img/perro_bandana.png' %}" class="img-fluid imag" alt="Bandanas">
         </div>
         <div class="col-md-4 mb-4">
-            <a href="{% url 'correa' %}"><img src="{% static 'img/gato_correa.png' %}" class="img-fluid imag" alt="Correas"></a>
+            <img src="{% static 'img/gato_correa.png' %}" class="img-fluid imag" alt="Correas">
         </div>
         <div class="col-md-4 mb-4">
-            <a href="{% url 'identificador' %}"><img src="{% static 'img/perro_identificador.png' %}" class="img-fluid imag" alt="Identificadores"></a>
+            <img src="{% static 'img/perro_identificador.png' %}" class="img-fluid imag" alt="Identificadores">
         </div>
+    </div>
+    <div class="row text-center">
+        <button class="boton-comprar" style="background-color: #9B7250; color: white; border: none; border-radius: 3px; padding: 0.5%;"> <a style="background-color: #9B7250; color: white; border: none; border-radius: 3px; padding: 0.5%; text-decoration: none;" href="{% url 'bandana' %}"> Comprar </a></button>
     </div>
 </div>
 
