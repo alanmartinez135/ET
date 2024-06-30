@@ -1,29 +1,75 @@
-.login{
-
-    border: 1px solid rgb(109, 109, 109);
-    width: 450px;
-    height: 510px;
-    /* background: url(/img/fondo-cuadro-login.jpeg); */
-    background-size: cover;
-    background-position: 75%;
-    color: #595b76;
-    border-radius:20px;
-    box-shadow: 0px 0px 10px 5px rgba(203, 222, 255, 0.75);
-    overflow: hidden;
-    position: absolute;
-    top: 50%;/*esto da como un margen al contenido*/
-    left: 50%;/*esto da como un margen al contenido*/
-    transform: translate(-50%, -50%); /*esto realiza el intercambio de datos del top y left para quedar*/
+/* Estilos para el contenedor principal */
+.registro {
+    margin-top: 50px; /* Margen superior */
+    background-color: #f0f0f0; /* Color de fondo */
+    padding: 2%; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    max-width: 500px; /* Ancho máximo */
+    margin-left: auto; /* Centrado horizontal */
+    margin-right: auto; /* Centrado horizontal */
+    display: flex; /* Activar flexbox */
+    flex-direction: column; /* Alinear contenido en columna */
+    align-items: center; /* Centrar elementos horizontalmente */
+    justify-content: center; /* Centrar elementos verticalmente */
+    min-height: 80vh; /* Altura mínima del contenedor */
 }
 
-.form{
-    display: block;
-    box-sizing: border-box;
-    padding: 40px;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(3px) brightness(50%);
-    flex-direction: column;
-    display: flex;
-    gap: 10px; /*esto define espacio entre los elementos es como si diera un padding*/
+/* Estilos para el título */
+.texto-registro h3 {
+    font-size: 24px; /* Tamaño de fuente */
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Margen inferior */
+    text-align: center; /* Alineación centrada */
+}
+
+/* Estilos para los campos de entrada */
+.form-control {
+    border: 1px solid #ccc; /* Borde del campo */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 15px; /* Margen inferior */
+    width: 100%; /* Ancho completo */
+    box-sizing: border-box; /* Incluir padding en el ancho total */
+}
+
+/* Estilos para el botón de enviar */
+.btn-light {
+    background-color: #f0f0f0; /* Color de fondo */
+    color: #333; /* Color del texto */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cursor al pasar */
+}
+
+.btn-light:hover {
+    background-color: #e0e0e0; /* Color de fondo al pasar */
+}
+
+/* Estilos para las alertas */
+.alert {
+    margin-top: 20px; /* Margen superior */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.alert-warning {
+    background-color: #fff3cd; /* Color de fondo para alerta de advertencia */
+    border: 1px solid #ffeeba; /* Borde para alerta de advertencia */
+    color: #856404; /* Color del texto para alerta de advertencia */
+}
+
+.iniciosesion{
+    margin-top: 50px; /* Margen superior */
+    background-color: #f0f0f0; /* Color de fondo */
+    padding: 2%; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    max-width: 500px; /* Ancho máximo */
+    margin-left: auto; /* Centrado horizontal */
+    margin-right: auto; /* Centrado horizontal */
+    display: flex; /* Activar flexbox */
+    flex-direction: column; /* Alinear contenido en columna */
+    align-items: center; /* Centrar elementos horizontalmente */
+    justify-content: center; /* Centrar elementos verticalmente */
+    min-height: 80vh; /* Altura mínima del contenedor */
 }
