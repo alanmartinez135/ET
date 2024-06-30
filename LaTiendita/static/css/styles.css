@@ -2,11 +2,6 @@
     background-color: #efe9e4;
     font-family:Helvetica;
 }
-.boton-comprar{
-    background-color: #9B7250; /* Color de fondo personalizado */
-    color: #fefefe; /* Color del texto */
-    border: none; /* Color del borde */
-}
 
 .searchbar{
     width: 100%;

@@ -28,12 +28,11 @@ def bandana(request):
 
     return render(request, 'public/bandana.html', context)
 
-def identificador(request):
-    productos = Producto.objects.filter(stock__gt=0, categoria='identificador') 
-    context = {
-        'productos': productos,
-    }
-    return render(request, 'public/identificador.html', context)
+def registro(request):
+    return render(request, 'auth/registro.html')
+
+def iniciar_sesion(request):
+    return render(request, 'auth/iniciar_sesion.html')
 
 def descrip_carro(request):
     return render(request, 'public/descrip_carrito.html')
