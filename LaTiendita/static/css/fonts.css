@@ -1,0 +1,37 @@
+/*AILERON*/
+@font-face {
+    font-family: "Aileron";
+    src: url(fonts/aileron_0102/Aileron-Regular.otf) format("truetype");
+    font-weight: 400;
+}
+
+@font-face { 
+    font-family: "Aileron";
+    src: url(fonts/aileron_0102/Aileron-SemiBold.otf) format("truetype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Aileron";
+    src: url(fonts/aileron_0102/Aileron-SemiBoldItalic.otf) format("truetype");
+    font-weight: 550;
+}
+
+@font-face { 
+    font-family: "Aileron";
+    src: url(fonts/aileron_0102/Aileron-Bold.otf) format("truetype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Aileron";
+    src: url(fonts/aileron_0102/Aileron-Black.otf) format("truetype");
+    font-weight: 700;
+}
+
+/*POPPINS*/
+@font-face {
+    font-family: "Poppins";
+    src: url(fonts/Poppins/Poppins-Medium.ttf) format("truetype");
+    font-weight: 500;
+}
