@@ -32,7 +32,9 @@
 }
 
 .carrusel{
-    width: 100%; margin: auto; padding-top: 0px;
+    width: 100%; 
+    margin: auto; 
+    padding-top: 0px;
 }
 
 .todoP{
@@ -81,17 +83,24 @@ span{
 .banner{
     padding-top: 100px;
 }
-.banner_perro{
-    border-radius: 40px;
+.banner-perro{
+    border-radius: 49px;
 }
 
 .footer{
+    min-height: 100px;
     margin-top: 80px;
     padding-top: 3%;
     height: 130px;
     container-type: fluid;
     background-color: #C5A387;
 }
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
 .textoC{
     margin-top: -3px;
 }
@@ -126,6 +135,16 @@ span{
 .card-img-top{
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
+}
+
+.boton-comprar{
+    text-decoration: none; 
+    color: white;
+    background-color: #9B7250;
+    border: none;
+    border-radius: 3px; 
+    padding: 0.5%; 
+    width: 100%;
 }
 
 /*Tipografías aileron 400-500-600-700   poppins 500*/

@@ -19,6 +19,11 @@
    .card-info {
     padding-top: 3%;
    }
+
+   .form-svg{
+    border: 0 none #000000;
+    background-color: transparent;
+   }
    
    svg {
     width: 20px;
@@ -48,11 +53,11 @@
    
    /*Button*/
    .card-button {
-    border: 1px solid #0000;
+    border: 1px none #0000;
     display: flex;
     padding: .3em;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 100%;
     transition: .3s ease-in-out;
    }
    
