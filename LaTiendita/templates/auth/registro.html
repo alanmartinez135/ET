@@ -14,34 +14,40 @@
       <h3>Registro</h3>
     </div>
     <div class="div-input col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-      <form  action="" method="POST">
+    <div id="mensajeAlerta" class="alert alert-danger" style="display: none;"></div>
+      <form id="registroForm" action="" method="POST">
         {% csrf_token %}
         <div class="mb-3">
-          <label for="Usuario" class="form-label">Usuario</label>
+          <label for="InputUsuario" class="form-label">Usuario</label>
           <input type="text" class="form-control input" id="InputUsuario" name="InputUsuario" placeholder="Ejemplo_123">
-          </div>
+        </div>
         <div class="mb-3">
-          <label for="Email1" class="form-label">Correo</label>
+          <label for="InputEmail1" class="form-label">Correo</label>
           <input type="email" class="form-control input" id="InputEmail1" name="InputEmail1" aria-describedby="emailHelp" placeholder="Ejemplo@gmail.com">
         </div>
         <div class="mb-3">
-          <label for="run" class="form-label">rut</label>
+          <label for="run" class="form-label">RUT</label>
           <input type="text" class="form-control input" id="run" name="run" placeholder="123456789">
           <div id="helpblock" class="form-text">
             Sin puntos y sin guión.
-            Si su rut termina con k, reemplace con 0.
+            Si su RUT termina con k, reemplace con 0.
           </div>
         </div>
         <div class="mb-3">
-          <label for="Password1" class="form-label">Contraseña</label>
+          <label for="InputPassword1" class="form-label">Contraseña</label>
           <input type="password" class="form-control input" id="InputPassword1" name="InputPassword1" placeholder="Ejem123.90">
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="Check1">
-          <label class="form-check-label" for="exampleCheck1">Acepta los términos y condiciones</label>
+          <label class="form-check-label" for="Check1">Acepta los términos y condiciones</label>
         </div>
-        <center><button type="submit" class="btn btn-light" >Enviar</button></center>
+        <center><button type="submit" class="btn btn-light">Enviar</button></center>
       </form>
     </div>
-  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/validaciones.js' %}"></script>
 {% endblock %}

@@ -163,22 +163,13 @@ def limpiar_carrito(request):
 def pago(request):
     carrito = request.session.get('carrito', {})
     
+    error = None
     if not carrito:  # Verificar si el carrito está vacío
         return render(request, 'public/descrip_carrito.html', {'error': 'No existen productos en el carrito.'})
     
     if request.method == "POST":
         # Procesar la selección de despacho y método de pago
-        despacho = request.POST.get('despacho', '')
         metodo_pago = request.POST.get('metodo_pago', '')
-        
-        # Validar dirección si se selecciona despacho a domicilio
-        if despacho == 'domicilio':
-            direccion = request.POST.get('direccion', '')
-            if not direccion:
-                messages.error(request, 'Debes ingresar una dirección para el despacho a domicilio.')
-                return redirect('pago')
-        else:
-            direccion = None
         
         # Verificar si el usuario está autenticado
         if not request.user.is_authenticated:
@@ -198,7 +189,7 @@ def pago(request):
                 for key, value in carrito.items():
                     producto = Producto.objects.get(id=value['producto_id'])
                     cantidad_comprada = value['cantidad']
-                    precio_total = value['acumulado']
+                    precio_total = value.get('acumulado', producto.precio * cantidad_comprada)
                     
                     # Validar si la cantidad deseada supera el stock disponible
                     if cantidad_comprada > producto.stock:
@@ -210,8 +201,6 @@ def pago(request):
                         producto=producto,
                         cantidad=cantidad_comprada,
                         precio_total=precio_total,
-                        tipo_despacho=despacho,
-                        direccion_entrega=direccion,
                         fecha_compra=timezone.now(),
                         usuario=user_profile
                     )
@@ -224,7 +213,7 @@ def pago(request):
                 del request.session['descrip_carrito']
                 request.session.modified = True
                 
-                return redirect('inicio')  # Redirigir a la página de inicio después de la compra
+                return redirect('confirmacion')  # Redirigir a la página de inicio después de la compra
         
         except Producto.DoesNotExist:
             messages.error(request, 'Uno o más productos no existen en nuestro inventario.')
