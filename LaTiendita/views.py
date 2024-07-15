@@ -251,3 +251,25 @@ def pago(request):
     }
         
     return render(request, 'public/pago.html', context)
+
+def confirmacion(request):
+    perfil = request.session.get('perfil')
+
+
+    productos = Producto.objects.filter(stock__gt=0)
+
+    user_profile = None
+
+    if request.user.is_authenticated:
+        try:
+            user_profile = UserProfile.objects.get(user=request.user)
+        except UserProfile.DoesNotExist:
+            user_profile = None
+
+    context = {
+        'perfil': perfil,
+        'productos': productos,
+        'user_profile': user_profile
+    }
+
+    return render(request, 'public/confirmacion.html',context )
