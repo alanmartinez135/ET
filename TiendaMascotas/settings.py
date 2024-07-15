@@ -58,7 +58,7 @@ ROOT_URLCONF = 'TiendaMascotas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,3 +129,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 Media_URL = "/media/"
 Media_ROOT = os.path.join(BASE_DIR, "media")
+
+
+ROLES = (
+    ('admin', 'Administrador'),
+    ('cliente', 'Cliente')
+)
+
+LOGIN_URL = 'inicio-sesion/'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Usa la base de datos para almacenar las sesiones
+SESSION_COOKIE_NAME = 'sessionid'
+SESSION_COOKIE_AGE = 1209600  # Dos semanas
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False

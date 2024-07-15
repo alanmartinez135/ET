@@ -1,7 +1,10 @@
+from .models import Carrito
+
 def total_carrito(request):
     total = 0
-    if request.user.is_authenticated:
-        if "carrito" in request.session and request.session["carrito"]:
-            for key, value in request.session["carrito"].items():
-                total += float(value["acumulado"]) 
-    return {"total_carrito": total}
+    if 'carrito' in request.session:
+        carrito = request.session['carrito']
+        for item in carrito.values():
+            total += item.get('subtotal', 0)
+    
+    return {'total_carrito': total}

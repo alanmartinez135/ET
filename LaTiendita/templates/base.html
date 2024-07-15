@@ -22,13 +22,11 @@
                         <span class="navbar-brand laTiendita" href="{% url 'inicio'%}">La Tiendita</span>
                     </a>
                 </div>
-                <div class="navbar-icons">
-                    <button type="button" class="btn">
-                        <a href="carro.html"><img src="{% static 'img/carro.png' %}" alt="carro de compras" width="20px"></a>
-                    </button>
+                <div class="navbar-icons d-flex align-items-center">
                     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <img src="{% static 'img/usuario.png' %}" alt="usuario" width="20px">
                       </button>
+                      <h3 style="color: black;">Bienveni@ {{ request.user.username }}!</h3> 
                       <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

@@ -1,46 +1,34 @@
-class Carrito:
-    def __init__(self, request):
-        self.request = request
-        self.session = request.session
+from .models import Carrito as CarritoModel, DetalleCarrito
 
-        if "carrito" not in self.session or not self.session["carrito"]:
-            self.session["carrito"] = {}
-       
-        self.carrito = self.session["carrito"]
+class Carrito:
+    def __init__(self, usuario):
+        self.usuario = usuario
+        self.carrito, created = CarritoModel.objects.get_or_create(usuario=self.usuario, activo=True)
     
     def agregar(self, producto):
-        id = str(producto.id)
-        if id not in self.carrito.keys():
-            self.carrito[id] = {
-                "producto_id": producto.id,
-                "nombre": producto.nombre,
-                "acumulado": producto.precio,
-                "cantidad": 1,
-            }
-        else:
-            self.carrito[id]["cantidad"] += 1
-            self.carrito[id]["acumulado"] += producto.precio
-        self.guardar_carrito()
+        detalle_carrito, created = DetalleCarrito.objects.get_or_create(carrito=self.carrito, producto=producto, defaults={
+            'cantidad': 1,
+            'total': producto.precio,
+            'subtotal': producto.precio
+        })
+        if not created:
+            detalle_carrito.cantidad += 1
+            detalle_carrito.total += producto.precio
+            detalle_carrito.subtotal += producto.precio
+            detalle_carrito.save()
     
-    def guardar_carrito(self):
-        self.session["carrito"] = self.carrito
-        self.session.modified = True
-
     def eliminar(self, producto):
-        id = str(producto.id)
-        if id in self.carrito:
-            del self.carrito[id]
-            self.guardar_carrito()
-    
-    def restar(self, producto):
-        id = str(producto.id)
-        if id in self.carrito.keys():
-            self.carrito[id]["cantidad"] -=1
-            self.carrito[id]["acumulado"] -= producto.precio
-            if self.carrito[id]["cantidad"] <= 0:
-                self.eliminar(producto)
-            self.guardar_carrito()
-    
+        try:
+            detalle_carrito = DetalleCarrito.objects.get(carrito=self.carrito, producto=producto)
+            if detalle_carrito.cantidad > 1:
+                detalle_carrito.cantidad -= 1
+                detalle_carrito.total -= producto.precio
+                detalle_carrito.subtotal -= producto.precio
+                detalle_carrito.save()
+            else:
+                detalle_carrito.delete()
+        except DetalleCarrito.DoesNotExist:
+            pass  # Producto no encontrado en el carrito
+
     def limpiar(self):
-        self.session["carrito"] = {}
-        self.session.modified = True
+        DetalleCarrito.objects.filter(carrito=self.carrito).delete()
