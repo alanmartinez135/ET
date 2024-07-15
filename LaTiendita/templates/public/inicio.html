@@ -57,17 +57,20 @@
         <div class="col-md-4 mb-4">
             <img src="{% static 'img/perro_identificador.png' %}" class="img-fluid imag" alt="Identificadores">
         </div>
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <button class="boton-comprar"> <a class="boton-comprar" href="{% url 'bandana' %}"> Comprar </a></button>
     </div>
-    <div class="row text-center">
-        <button class="boton-comprar" style="background-color: #9B7250; color: white; border: none; border-radius: 3px; padding: 0.5%;"> <a style="background-color: #9B7250; color: white; border: none; border-radius: 3px; padding: 0.5%; text-decoration: none;" href="{% url 'bandana' %}"> Comprar </a></button>
-    </div>
+    <div class="col-md-4"></div>
 </div>
 
 <!--Oferta-->
 <div class="container-fluid banner">
     <div class="row justify-content-center my-4">
         <div class="col-md-8">
-            <img src="{% static 'img/Banner web comida de perros negro.jpeg' %}" alt="banner" class="img-fluid">
+            <img src="{% static 'img/Banner web comida de perros negro.jpeg' %}" alt="banner" class="img-fluid banner-perro">
         </div>
     </div>
 </div>
