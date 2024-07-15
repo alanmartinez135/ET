@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Suscripción{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Suscríbete a nuestro boletín</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Suscribirme</button>
+    </form>
+</div>
+{% endblock %}

@@ -11,6 +11,7 @@ from django.db import transaction
 from .decorators import role_required
 from .Carrito import Carrito, DetalleCarrito
 from .models import Producto, Carrito, UserProfile
+from .forms import SuscripcionForm
 
 # Create your views here.
 
@@ -196,6 +197,10 @@ def pago(request):
                         messages.error(request, f'El producto "{producto.nombre_plato}" no tiene suficiente stock disponible.')
                         return redirect('descrip_carrito')  # O redirigir a la página del carrito
                     
+                    
+                    if Suscripcion.objects.filter(usuario=request.user).exists():
+                        precio_total *= 0.9  # Aplicar un 10% de descuento
+                    
                     # Crear el detalle de la compra
                     DetalleCompra.objects.create(
                         producto=producto,
@@ -262,3 +267,17 @@ def confirmacion(request):
     }
 
     return render(request, 'public/confirmacion.html',context )
+
+@login_required
+def suscribirse(request):
+    if request.method == 'POST':
+        form = SuscripcionForm(request.POST)
+        if form.is_valid():
+            suscripcion = form.save(commit=False)
+            suscripcion.usuario = request.user
+            suscripcion.save()
+            messages.success(request, 'Gracias por suscribirte.')
+            return redirect('inicio')
+    else:
+        form = SuscripcionForm()
+    return render(request, 'public/suscribirse.html', {'form': form})

@@ -13,5 +13,6 @@ urlpatterns = [
     path('limpiar/', views.limpiar_carrito, name='cls'),
     path('pago/', views.pago, name='pago'),
     path('confirmacion/', views.confirmacion, name='confirmacion'),
+    path('suscribirse/', views.suscribirse, name='suscribirse')
 ]
 

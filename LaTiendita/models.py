@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.conf import settings
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 
@@ -67,4 +69,12 @@ class DetalleCarrito(models.Model):
     
     def __str__(self):
         return f'Detalle de {self.carrito.usuario.username}'
+
+
+class Suscripcion(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    email = models.EmailField(unique=True)
+    fecha_suscripcion = models.DateTimeField(auto_now_add=True)
     
+    def __str__(self):
+        return self.email
